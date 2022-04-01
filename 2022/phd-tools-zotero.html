@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- CSS file -->
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
+
+    <title>Oskar van der Wal's personal website</title>
+</head>
+<body>
+    <nav class="container-fluid">
+        <ul>
+            <li><a href="https://odvanderwal.nl"><strong>Oskar van der Wal</strong></a></li>
+        </ul>
+        <ul>
+            <li><a href="https://odvanderwal.nl/pages/about-me.html" >About me</a></li>
+            <li><a href="https://odvanderwal.nl/pages/publications.html" >Publications</a></li>
+            <li><a href="https://odvanderwal.nl/pages/teaching.html" >Teaching</a></li>
+	    <li><a href="https://odvanderwal.nl/archives.html">Blog</a></li>
+        </ul>
+    </nav>
+
+<article>
+<main class="container">
+<section id="content">
+                <header>
+                        <h1>
+                                <a href=""
+                                        rel="bookmark"
+                                        title="Permalink to PhD Tools for Conviviality: Zotero">
+                                        PhD Tools for Conviviality: Zotero
+                                </a>
+                        </h1>
+		<dt><i>Fri 01 April 2022</i></dt>
+                </header>
+                </div>
+                <p><p><a href="https://www.zotero.org/">Zotero</a> is a free and open source reference manager. I like how polished the software is and the many features/plugins that are available. With the <a href="https://www.zotero.org/download/connectors">browser extension</a> I can easily capture articles while browsing the internet, with group libraries I can organize and share papers with different research groups, and with the <a href="https://retorque.re/zotero-better-bibtex/">Better BibTex</a> plugin I can export my bibliography to a bibtex file.
+This blog post is intended for my colleages at the University of Amsterdam, but may also contain useful information for others.</p>
+<h1>SURFdrive as webdav backend for Zotero</h1>
+<p>Zotero provides a sync service so that you can synchronise all your papers across your different devices. However, the free storage is limited to 300 MB, and before you know it you're out of space.
+Fortunately, you can also use a WebDav backend for your storage instead.
+Here I'll show how you can use <a href="https://surfdrive.surf.nl/">SURFdrive</a> for your Zotero storage, where people at the University of Amsterdam get 500GB for free.</p>
+<p>After logging into SURFdrive, you need to go to your Settings, where you can also find your username (<code>something@uva.nl</code>).
+<img alt="firefox_RXkDcjtLL3.png" src="https://odvanderwal.nl/images/firefox_RXkDcjtLL3.png"></p>
+<p>Then head to the <code>Security</code> tab.
+<img alt="firefox_qGN4Gve4KZ.png" src="https://odvanderwal.nl/images/firefox_qGN4Gve4KZ.png"></p>
+<p>Scroll down, and you can find the settings for creating an app password, which you will need for Zotero. Create an app password and take note of your password, which will be of the form: <code>XXXXX-XXXXX-XXXXX-XXXXX</code>.</p>
+<p><img alt="firefox_udE0yEgLKC.png" src="https://odvanderwal.nl/images/firefox_udE0yEgLKC.png"></p>
+<p>The last thing you need to do in your SURFdrive, is to create a <code>zotero/</code> folder somewhere. Depending on the location, you will have to change the WebDAV url, which is <code>https://surfdrive.surf.nl/files/remote.php/nonshib-webdav/</code> + the location of your <code>zotero/</code> folder.</p>
+<p>If your zotero folder is in the root of your SURFdrive, the WebDAV url becomes: <code>https://surfdrive.surf.nl/files/remote.php/nonshib-webdav/zotero/</code>.</p>
+<p>Now open Zotero and go to <code>Edit/Preferences</code> and the tab <code>Sync</code>. Select WebDAV for syncing your attachment files (i.e. the PDF files). Then fill in the WebDAV URL, SURFdrive Username, and your App Password. Finish by verifying the server settings.</p>
+<p><img alt="zotero_RhRLI0o2Yw.png" src="https://odvanderwal.nl/images/zotero_RhRLI0o2Yw.png"></p>
+<h1>Mobile workflow</h1>
+<p>Recently, Zotero announced <a href="https://www.zotero.org/support/ios">Zotero for iOS</a>, which makes it easy to read and annotate your papers on an iPad.</p>
+<p>Before that, I made use of the <a href="http://zotfile.com/">ZotFile</a> plugin to select papers to be shared with other devices (syncing the shared folder using <a href="https://syncthing.net/">Syncthing</a>, but you can also use Dropbox). You can still use that workflow on Android, which has no official Zotero app. However, I have found the <a href="https://play.google.com/store/apps/details?id=com.mickstarify.zooforzotero&amp;gl=US">Zoo for Zotero</a> android app to work really well in combination with the <a href="https://play.google.com/store/apps/details?id=com.xodo.pdf.reader&amp;gl=US">Xodo PDF Reader</a> on Android.</p>
+<p>For both iOS and Android you can use the same WebDAV settings for accessing your Zotero papers.</p></p>
+</section>
+</main>
+</article>
+
+</body>
+</html>
