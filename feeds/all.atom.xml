@@ -5,10 +5,10 @@ Here I'll share some more tricks on using Zotero, which I thought would be usefu
 &lt;p&gt;Zotero provides a sync service so that you can synchronise all your papers across your different devices. However, the free storage is limited to 300 MB, and before you know it you're out of space.
 Fortunately, you can also use a WebDav backend for your storage instead.
 Here I'll show how you can use &lt;a href="https://surfdrive.surf.nl/"&gt;SURFdrive&lt;/a&gt; for your Zotero storage, where people at the University of Amsterdam get 500GB for free.&lt;/p&gt;
-&lt;p&gt;After logging into SURFdrive, you need to go to your Settings, where you can also find your username (&lt;code&gt;something@uva.nl&lt;/code&gt;).
-&lt;img alt="firefox_RXkDcjtLL3.png" src="https://odvanderwal.nl/images/firefox_RXkDcjtLL3.png"&gt;&lt;/p&gt;
-&lt;p&gt;Then head to the &lt;code&gt;Security&lt;/code&gt; tab.
-&lt;img alt="firefox_qGN4Gve4KZ.png" src="https://odvanderwal.nl/images/firefox_qGN4Gve4KZ.png"&gt;&lt;/p&gt;
+&lt;p&gt;After logging into SURFdrive, you need to go to your Settings, where you can also find your username (&lt;code&gt;something@uva.nl&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;&lt;img alt="firefox_RXkDcjtLL3.png" src="https://odvanderwal.nl/images/firefox_RXkDcjtLL3.png"&gt;&lt;/p&gt;
+&lt;p&gt;Then head to the &lt;code&gt;Security&lt;/code&gt; tab.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="firefox_qGN4Gve4KZ.png" src="https://odvanderwal.nl/images/firefox_qGN4Gve4KZ.png"&gt;&lt;/p&gt;
 &lt;p&gt;Scroll down, and you can find the settings for creating an app password, which you will need for Zotero. Create an app password and take note of your password, which will be of the form: &lt;code&gt;XXXXX-XXXXX-XXXXX-XXXXX&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;img alt="firefox_udE0yEgLKC.png" src="https://odvanderwal.nl/images/firefox_udE0yEgLKC.png"&gt;&lt;/p&gt;
 &lt;p&gt;The last thing you need to do in your SURFdrive, is to create a &lt;code&gt;zotero/&lt;/code&gt; folder somewhere. Depending on the location, you will have to change the WebDAV url, which is &lt;code&gt;https://surfdrive.surf.nl/files/remote.php/nonshib-webdav/&lt;/code&gt; + the location of your &lt;code&gt;zotero/&lt;/code&gt; folder.&lt;/p&gt;
