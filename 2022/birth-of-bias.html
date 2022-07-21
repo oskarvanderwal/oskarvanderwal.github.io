@@ -82,7 +82,7 @@ how LMs come to be biased in the first place, and what role the training data, a
 <ul>
 <li>We identify different phases in the learning dynamics of gender (bias): in how locally it is represented and the different dataset features that can explain these.</li>
 <li>We have seen that the concept of gender is encoded increasingly locally in the input embeddings during training, and that the dominant <strong>gender unit</strong> specializes in feminine word information.</li>
-<li>The bias measured in the input embeddings are fairly predictive of the bias measured downstream. We even found that debiasing the input embeddings is effective in reducing the downstream bias, indicating some causal relationship.</li>
+<li>The bias measured in the input embeddings are fairly predictive of the bias measured downstream; though in a very specific and simple task. We even found that debiasing the input embeddings is effective in reducing the downstream bias, indicating some causal relationship.</li>
 <li>We observed a striking gender asymmetry in our results, for instance, in how the dominant gender unit in the input embedding space specializes in female word information and how debiasing has a different effect depending on the gender bias of the word. This latter observation underlines the importance of understanding how the (gender) bias is represented in the internal state of the LM, as naive debiasing may introduce new biases.</li>
 </ul></p>
 </section>
