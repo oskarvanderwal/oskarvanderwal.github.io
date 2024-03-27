@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- CSS file -->
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
+
+    <!-- Script for counting website visitors -->
+    <script async src="https://discreet-raccoon.pikapod.net/script.js" data-website-id="9238e917-e417-4d79-9832-6e02d5dd20cb"></script>
+
+    <!-- Script for including feather icons: https://github.com/feathericons/feather -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    <title>Oskar van der Wal's personal website</title>
+</head>
+<body>
+    <nav class="container-fluid">
+        <ul>
+            <li><a href="https://odvanderwal.nl"><strong>Oskar van der Wal</strong></a></li>
+        </ul>
+        <ul>
+            <li><a href="https://odvanderwal.nl/pages/about-me.html" >About me</a></li>
+            <li><a href="https://odvanderwal.nl/pages/publications.html" >Publications</a></li>
+            <li><a href="https://odvanderwal.nl/pages/teaching.html" >Teaching</a></li>
+	    <li><a href="https://odvanderwal.nl/archives.html">Blog</a></li>
+	    <li>
+	      <details class="dropdown">
+		<summary>
+		  More
+		</summary>
+		<ul dir="rtl"> 
+        	  <li><a href="https://scholar.google.nl/citations?user=AeHaYUoAAAAJ&hl=nl&oi=ao">Google Scholar</a></li>
+        	  <li><a href="https://github.com/oskarvanderwal">GitHub</a></li>
+        	  <li><a href="https://sigmoid.social/@oskarvanderwal">Mastodon</a></li>
+		  <li><a href="https://bsky.app/profile/ovdw.bsky.social">Bluesky</a></li>
+		  <li><a href="https://twitter.com/oskarvanderwal">Twitter</a></li>
+      		</ul>
+    	    </details>
+            </li>
+	</ul>
+    </nav>
+
+<article>
+<main class="container">
+<section id="content">
+                <header>
+                        <h1>
+                                <a href=""
+                                        rel="bookmark"
+                                        title="Permalink to Paper: "Undesirable Biases in NLP: Addressing Challenges of Measurement"">
+                                        Paper: "Undesirable Biases in NLP: Addressing Challenges of Measurement"
+                                </a>
+                        </h1>
+		<dt><i>Wed 24 January 2024</i></dt>
+                </header>
+                </div>
+                <p><p><em>This post is about our paper <a href="https://doi.org/10.1613/jair.1.15195">"Undesirable Biases in NLP: Addressing Challenges of Measurement"</a>, published in JAIR.</em></p>
+<p>Developing tools for measuring &amp; mitigating bias is challenging: LM bias is a complex sociocultural phenomenon and we have no access to a ground truth. We voice our concerns about current bias evaluation practices, and discuss how we can ensure the quality of bias measures despite these challenges.</p>
+<h2>Operationalizations of Bias</h2>
+<p>Borrowing from psychometrics (a field specialized in the measurement of concepts that are not directly observable), we argue that it is useful to decouple the "construct" (what we want to know about but cannot observe directly) from its "operationalization" (the imperfect proxy).</p>
+<p><img alt="bias_operationalizations.png" src="https://odvanderwal.nl/images/bias_operationalizations.png"></p>
+<p>It's important to understand the difference! For instance, a twice-as-high bias score (operationalization) does not necessarily mean that the model is twice as biased (construct). Making this distinction allows us to be more explicit about our assumptions and conceptualizations.</p>
+<p>We discuss two important concepts that say something about the quality of bias measures: <strong>reliability</strong> and <strong>construct validity</strong>. For both, we discuss strategies for how to assess these in the NLP setting.</p>
+<h2>Reliability</h2>
+<p>How much precision can we get when applying the bias measure? How resilient is it to random measurement error? Naturally, we prefer measurement tools with a higher reliability! In our paper we discuss four forms of reliability we think can be applied easily to the NLP context.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Reliability type</strong></th>
+<th><strong>Consistency across</strong></th>
+<th><strong>Example application</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Inter-rater</td>
+<td>(Human) annotators</td>
+<td>Annotating potential test items</td>
+</tr>
+<tr>
+<td>Internal consistency</td>
+<td>Test items of a measure</td>
+<td>Templates</td>
+</tr>
+<tr>
+<td>Parallel-form</td>
+<td>Alternative versions of a measure</td>
+<td>Bias benchmarks &amp; prompts</td>
+</tr>
+<tr>
+<td>Seed-based test-retest</td>
+<td>Random seeds</td>
+<td>Model retraining</td>
+</tr>
+<tr>
+<td>Corpus-based test-retest</td>
+<td>Training data sets</td>
+<td>Model retraining</td>
+</tr>
+<tr>
+<td>Time-based test-retest</td>
+<td>Time</td>
+<td>Training steps &amp; temporal data</td>
+</tr>
+</tbody>
+</table>
+<p>For instance, parallel-form reliability tests if different—but designed to be equivalent—versions of a measure are consistent. E.g., how consistent are different prompt formulations for evaluating the LM responses on the same bias dataset? Are LMs sensitive to minor changes to how the questions are phrased?</p>
+<p>Relatedly, <a href="https://bsky.app/profile/lchoshen.bsky.social/post/3k66c6hjqr623">Leshem Choshen and his co-authors</a> comes with a compelling argument: not the size of a benchmark, but its reliability matters! We waste valuable resources when computing results for test items that do not contribute to the overall reliability of the dataset.</p>
+<h2>Construct Validity</h2>
+<p>How sure are we that we measure what we actually want to measure (the construct)? Critical work by e.g., Gonen &amp; Goldberg, Blodgett et al., Orgad &amp; Belinkov shows many flaws that could hurt the validity. How do we design bias measures that actually measure what we want?</p>
+<table>
+<thead>
+<tr>
+<th><strong>Validity type</strong></th>
+<th><strong>Focus</strong></th>
+<th><strong>Example</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Convergent:</strong> Do measurements from this instrument relate to measures that they should relate to?</td>
+<td>related measure or construct</td>
+<td>downstream harm</td>
+</tr>
+<tr>
+<td><strong>Divergent:</strong> Do measurements from this instrument not relate (or only relate weakly) to measures that they should not relate (or only relate weakly) to?</td>
+<td>confounding construct</td>
+<td>general model capability</td>
+</tr>
+<tr>
+<td><strong>Content:</strong> Are all relevant sub-components of the construct represented sufficiently by measures from   this instrument? Is none of the instrument's materials construct( subcomponent)-irrelevant?</td>
+<td>relevant subcomponents of the construct</td>
+<td>different forms of gender bias</td>
+</tr>
+</tbody>
+</table>
+<p>Ideally, one would test the validity by comparing one’s bias results with a gold standard (criterion validity). Unfortunately, we do not have access to this for something like model bias. However, there exist alternative (weaker) strategies for validating bias benchmarks!</p>
+<h3>Convergent and Divergent Validity</h3>
+<p>An obvious approach is to test the <strong>convergent validity</strong>: How well do our bias scores relate to other bias measures? And—more importantly—to the downstream harms of LMs? (Sometimes called predictive validity) See, for example, the work by Delobelle et al., Goldfarb-Tarrant et al., and others.</p>
+<p><img alt="convergent_divergent_validity.png" src="https://odvanderwal.nl/images/convergent_divergent_validity.png"></p>
+<p>However, we believe that its flip side, <strong>divergent validity</strong>, deserves attention as well! Instead, we ask whether the bias measure is not too similar to another (easily confounded) measure or construct. We do not want to accidentally also measure something else.</p>
+<p>Maybe you want to decouple gender bias from grammatical gender (see e.g., Limisiewicz &amp; Mareček). Or—when comparing the bias of models of different sizes—to make sure that model capability is not a confounding factor. Maybe smaller models do not respond well to prompting and appear to be less biased, while with simpler tasks they may show more bias.</p>
+<p>If you use/develop bias measures, we encourage you to apply a psychometric lens for reliably measuring the construct of interest. We end our paper with guidelines for developing bias measurement tools, which complements excellent advice by Dev et al., Talat et al., Blodgett et al. and others!</p>
+<div class="highlight"><pre><span></span><span class="nv">@article</span><span class="err">{</span><span class="n">vanderwal2024undesirable</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">title</span><span class="o">=</span><span class="err">{</span><span class="n">Undesirable</span><span class="w"> </span><span class="n">biases</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nl">NLP</span><span class="p">:</span><span class="w"> </span><span class="n">Addressing</span><span class="w"> </span><span class="n">challenges</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">measurement</span><span class="err">}</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">author</span><span class="o">=</span><span class="err">{</span><span class="n">van</span><span class="w"> </span><span class="n">der</span><span class="w"> </span><span class="n">Wal</span><span class="p">,</span><span class="w"> </span><span class="n">Oskar</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">Bachmann</span><span class="p">,</span><span class="w"> </span><span class="n">Dominik</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">Leidinger</span><span class="p">,</span><span class="w"> </span><span class="n">Alina</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">van</span><span class="w"> </span><span class="n">Maanen</span><span class="p">,</span><span class="w"> </span><span class="n">Leendert</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">Zuidema</span><span class="p">,</span><span class="w"> </span><span class="n">Willem</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">Schulz</span><span class="p">,</span><span class="w"> </span><span class="n">Katrin</span><span class="err">}</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">journal</span><span class="o">=</span><span class="err">{</span><span class="n">Journal</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">Artificial</span><span class="w"> </span><span class="n">Intelligence</span><span class="w"> </span><span class="n">Research</span><span class="err">}</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">volume</span><span class="o">=</span><span class="err">{</span><span class="mi">79</span><span class="err">}</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">pages</span><span class="o">=</span><span class="err">{</span><span class="mi">1</span><span class="o">--</span><span class="mi">40</span><span class="err">}</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nf">year</span><span class="o">=</span><span class="err">{</span><span class="mi">2024</span><span class="err">}</span><span class="w"></span>
+<span class="err">}</span><span class="w"></span>
+</pre></div></p>
+</section>
+</main>
+</article>
+
+</body>
+</html>
